@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="HVZeeland.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HVZeeland"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:CLib="using:XamlControlLibrary"
+    mc:Ignorable="d"
+    Background="#096898">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/HVZStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/PivotControlStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Pivot x:Name="HVZPivot" Style="{StaticResource CustomPivotStyle}" Title="HVZeeland.nl">
+            <PivotItem x:Name="LatestNews">
+                <PivotItem.Header>
+                    <TextBlock Text="Nieuws" FontSize="21" FontWeight="Bold" Margin="0,5,0,0" />
+                </PivotItem.Header>
+                <Grid Margin="-20, -23, -20, 0">
+                    <ScrollViewer VerticalScrollMode="Auto">
+                        <ListView x:Name="NewsListView" ItemTemplate="{StaticResource HVZNewsItemLink}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </ScrollViewer>
+                    <CLib:LoadingControl x:Name="LoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" LoadingText="Bezig met het ophalen van de laatste berichten."/>
+                </Grid>
+            </PivotItem>
+            <PivotItem x:Name="p2000">
+                <PivotItem.Header>
+                    <TextBlock Text="P2000" FontSize="21" FontWeight="Bold" Margin="0,5,0,0" />
+                </PivotItem.Header>
+            </PivotItem>
+            <PivotItem x:Name="Archive">
+                <PivotItem.Header>
+                    <TextBlock Text="Archief" FontSize="21" FontWeight="Bold" Margin="0,5,0,0" />
+                </PivotItem.Header>
+            </PivotItem>
+        </Pivot>
+
+    </Grid>
+</Page>
