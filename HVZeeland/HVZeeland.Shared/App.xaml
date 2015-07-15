@@ -3,5 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:HVZeeland">
-
+    
+    <Application.Resources>
+        <x:String x:Key="ProgressBarIndeterminateForegroundThemeBrush">#096898</x:String>
+        <SolidColorBrush x:Key="TextBoxBorderThemeBrush" Color="#096898" />
+        <SolidColorBrush x:Key="TextBoxPlaceholderTextThemeBrush" Color="#096898" />
+        <SolidColorBrush x:Key="TextBoxForegroundThemeBrush" Color="#096898" />
+    </Application.Resources>
 </Application>

@@ -3,6 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:HVZeeland.Styles">
 
+    <Style TargetType="ListViewItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    </Style>
+
     <DataTemplate x:Key="HVZNewsItemLink">
         <Grid x:Name="Content" Margin="0,0,0,10">
             <Grid.RowDefinitions>
@@ -17,6 +21,18 @@
             <TextBlock Grid.ColumnSpan="3" Text="{Binding TitleWithTime}" Margin="4.5,0" FontSize="16" FontWeight="Bold" Foreground="#096898" TextWrapping="WrapWholeWords" />
             <Image Grid.Column="0" Grid.Row="1" Width="{Binding ImageWidth}" Margin="4.5,5,0,0" Height="{Binding ImageHeight}" Source="{Binding ImageURL}"  Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" />
             <TextBlock Text="{Binding ContentWithLocation}" Margin="{Binding ContentMargin}"  Grid.Row="1" Grid.Column="2" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="WrapWholeWords" Foreground="Black" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="HVZP2000">
+        <Grid x:Name="Content" Margin="0,0,0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding Time}" Margin="4.5,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#096898" TextWrapping="WrapWholeWords" />
+            <TextBlock Text="{Binding Content}" Margin="4.5,0"  Grid.Row="1" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="WrapWholeWords" Foreground="Black" />
         </Grid>
     </DataTemplate>
 

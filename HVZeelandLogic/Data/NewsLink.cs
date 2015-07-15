@@ -67,6 +67,21 @@ namespace HVZeelandLogic
             this.Content = WebUtility.HtmlDecode(Content);
             this.CommentCount = WebUtility.HtmlDecode(CommentCount);
             this.Time = WebUtility.HtmlDecode(Time);
+
+            if (this.Location.EndsWith(" -"))
+            {
+                this.Location = this.Location.Substring(0, Location.Length - 2);
+            }
+
+            if (this.Location.EndsWith(" - "))
+            {
+                this.Location = this.Location.Substring(0, Location.Length - 3);
+            }
+
+            if (this.Content.StartsWith(" - "))
+            {
+                this.Content = this.Content.Substring(3, this.Content.Length - 3);
+            }
         }
     }
 }

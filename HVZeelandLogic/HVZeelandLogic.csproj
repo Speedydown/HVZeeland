@@ -42,8 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHandler.cs" />
+    <Compile Include="Data\NewsItem.cs" />
+    <Compile Include="Data\NewsItemParser.cs" />
     <Compile Include="Data\NewsLink.cs" />
     <Compile Include="Data\NewsLinkParser.cs" />
+    <Compile Include="Data\P2000Item.cs" />
+    <Compile Include="Data\P2000Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

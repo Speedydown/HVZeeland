@@ -25,35 +25,55 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
-        <Pivot x:Name="HVZPivot" Style="{StaticResource CustomPivotStyle}" Title="HVZeeland.nl">
+        <Pivot x:Name="HVZPivot" Style="{StaticResource CustomPivotStyle}" Title="HVZeeland.nl" SelectionChanged="HVZPivot_SelectionChanged">
             <PivotItem x:Name="LatestNews">
                 <PivotItem.Header>
                     <TextBlock Text="Nieuws" FontSize="21" FontWeight="Bold" Margin="0,5,0,0" />
                 </PivotItem.Header>
                 <Grid Margin="-20, -23, -20, 0">
                     <ScrollViewer VerticalScrollMode="Auto">
-                        <ListView x:Name="NewsListView" ItemTemplate="{StaticResource HVZNewsItemLink}">
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                        </ListView>
+                        <ListView x:Name="NewsListView" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
                     </ScrollViewer>
-                    <CLib:LoadingControl x:Name="LoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" LoadingText="Bezig met het ophalen van de laatste berichten."/>
+                    <CLib:LoadingControl x:Name="LoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Bezig met het ophalen van de laatste berichten."/>
                 </Grid>
             </PivotItem>
             <PivotItem x:Name="p2000">
                 <PivotItem.Header>
                     <TextBlock Text="P2000" FontSize="21" FontWeight="Bold" Margin="0,5,0,0" />
                 </PivotItem.Header>
+                <Grid Margin="-20, -23, -20, 0">
+                    <ScrollViewer VerticalScrollMode="Auto">
+                        <ListView x:Name="P2000ListView" ItemTemplate="{StaticResource HVZP2000}" IsItemClickEnabled="False" IsHitTestVisible="False"/>
+                    </ScrollViewer>
+                    <CLib:LoadingControl x:Name="LoadingControlP2000" TextColor="#096898" ErrorText="P2000 is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Bezig met het ophalen van de laatste P2000 meldingen."/>
+                </Grid>
             </PivotItem>
             <PivotItem x:Name="Archive">
                 <PivotItem.Header>
                     <TextBlock Text="Archief" FontSize="21" FontWeight="Bold" Margin="0,5,0,0" />
                 </PivotItem.Header>
+                <Grid Margin="-20, -23, -20, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="SearchTextbox" IsEnabled="True" Grid.Row="0" Margin="4,5,4.5,5" PlaceholderText="Vul hier uw zoekterm in" KeyDown="SearchTextbox_KeyDown"/>
+                    <ScrollViewer Grid.Row="1" VerticalScrollMode="Auto">
+                        <ListView x:Name="SearchListView" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
+                    </ScrollViewer>
+                    <CLib:LoadingControl Grid.Row="1" x:Name="SearchLoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Bezig met zoeken"/>
+                </Grid>
             </PivotItem>
         </Pivot>
-
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar Background="#096898" Foreground="White">
+            <AppBarButton x:Uid="HVZButton" x:Name="HVZButton" Label="Website" Icon="World" Click="HVZButton_Click" />
+            <AppBarButton x:Uid="ReloadButton" x:Name="ReloadButton" Label="Vernieuwen" Icon="Refresh" Click="ReloadButton_Click" />
+            <AppBarButton x:Uid="SearchButton" x:Name="SearchButton" Label="Zoeken" Visibility="Collapsed" Icon="Find" Click="SearchButton_Click" />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="PrivacyPolicyButton" x:Name="PrivacyPolicyButton" Label="Privacy policy"  Click="PrivacyPolicyButton_Click"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
