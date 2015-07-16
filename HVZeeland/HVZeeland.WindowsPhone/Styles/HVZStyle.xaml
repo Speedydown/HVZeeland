@@ -8,7 +8,7 @@
     </Style>
 
     <DataTemplate x:Key="HVZNewsItemLink">
-        <Grid x:Name="Content" Margin="0,0,0,10">
+        <Grid x:Name="Content" Margin="0,0,0,20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -18,7 +18,7 @@
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.ColumnSpan="3" Text="{Binding TitleWithTime}" Margin="4.5,0" FontSize="16" FontWeight="Bold" Foreground="#096898" TextWrapping="WrapWholeWords" />
+            <TextBlock Grid.ColumnSpan="3" Text="{Binding TitleWithTime}" Margin="4.5,0" FontSize="17" FontWeight="Bold" Foreground="#096898" TextWrapping="WrapWholeWords" />
             <Image Grid.Column="0" Grid.Row="1" Width="{Binding ImageWidth}" Margin="4.5,5,0,0" Height="{Binding ImageHeight}" Source="{Binding ImageURL}"  Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Left" />
             <TextBlock Text="{Binding ContentWithLocation}" Margin="{Binding ContentMargin}"  Grid.Row="1" Grid.Column="2" FontSize="15"  HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="WrapWholeWords" Foreground="Black" />
         </Grid>

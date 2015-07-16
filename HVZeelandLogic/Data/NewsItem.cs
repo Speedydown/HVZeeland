@@ -8,10 +8,11 @@ using WebCrawlerTools;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
+using WRCHelperLibrary;
 
 namespace HVZeelandLogic
 {
-    public class NewsItem
+    public sealed class NewsItem : INewsItem
     {
         public string Title { get; private set; }
         public string Added { get; private set; }
@@ -48,12 +49,46 @@ namespace HVZeelandLogic
             }
         }
 
+        public Visibility TimeStampVisibilty
+        {
+            get
+            {
+                return Visibility.Visible;
+            }
+        }
+
+        public Visibility SummaryVisibilty
+        {
+            get 
+            {
+                return Visibility.Visible;
+            }
+        }
+
+        public Thickness ContentMargins
+        {
+            get
+            {
+                return new Thickness(4, 15, 4, 5);
+            }
+        }
+
         public Uri MediaFile { get; private set; }
         public string ContentSummary { get; private set; }
         public IList<string> Body { get; private set; }
         public IList<string> ImageList { get; private set; }
         public string Author { get; private set; }
         public IList<Comment> Comments { get; private set; }
+
+        public Uri YoutubeURL { get; private set; }
+        public Visibility DisplayWebView
+        {
+            get
+            {
+                return YoutubeURL == null ? Visibility.Collapsed : Visibility.Visible;
+            }
+
+        }
 
         public NewsItem(string Title, string Added, string Updated, string MediaFile, string ContentSummary, string Body, IList<string> ImageList, string Author, IList<Comment> Comments)
         {
@@ -66,14 +101,14 @@ namespace HVZeelandLogic
                 this.MediaFile = new Uri(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(MediaFile)).Trim());
             }
             this.Author = HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(Author)).Trim();
-            this.ContentSummary = HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(ContentSummary)).Trim();
+            this.ContentSummary = HTMLParserUtil.CleanHTMLTagsFromString(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(ContentSummary))).Trim();
             this.Body = new string[] { HTMLParserUtil.CleanHTMLTagsFromString(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(Body)).Trim()) }.ToList();
             this.ImageList = ImageList;
             this.Comments = Comments;
         }
     }
 
-    public class Comment
+    public sealed class  Comment
     {
         public string Name { get; private set; }
         public string Content { get; private set; }

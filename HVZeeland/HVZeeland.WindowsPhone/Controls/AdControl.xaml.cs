@@ -20,6 +20,16 @@ namespace HVZeeland.Controls
         public AdControl()
         {
             this.InitializeComponent();
+
+            if (!adControl.HasAd)
+            {
+                AdGrid.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+        }
+
+        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            AdGrid.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
         }
     }
 }

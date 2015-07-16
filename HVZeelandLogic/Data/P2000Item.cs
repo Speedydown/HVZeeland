@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HVZeelandLogic
 {
-    public class P2000Item
+    public sealed class P2000Item
     {
         public string Time { get; private set; }
         public string Content { get; private set; }
