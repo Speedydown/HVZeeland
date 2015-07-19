@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using WebCrawlerTools;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
@@ -22,6 +23,7 @@ namespace HVZeeland
 {
     public sealed partial class NewsItemPage : Page
     {
+        private string CurrentURL = string.Empty;
         private NavigationHelper navigationHelper;
         private RelayCommand _checkedGoBackCommand;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -73,6 +75,7 @@ namespace HVZeeland
 
                 if (e.NavigationParameter != null)
                 {
+                    CurrentURL = (string)e.NavigationParameter;
                     NewsItem newsItem = await DataHandler.GetNewsPageFromURL(e.NavigationParameter.ToString());
                     this.DataContext = newsItem;
                 }
@@ -120,5 +123,10 @@ namespace HVZeeland
         }
 
         #endregion
+
+        private void ShareButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShareToolkit.ShareContentAsString(CurrentURL, "Gedeeld met HVZeeland voor Windows Phone", string.Empty);
+        }
     }
 }

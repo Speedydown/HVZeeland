@@ -24,4 +24,9 @@
         <CLib:LoadingControl Grid.Row="0" x:Name="LoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Een ogenblik geduld."/>
         <localControls:AdControl Grid.Row="1"/>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar Background="#096898" Foreground="White">
+            <AppBarButton x:Uid="ShareButton" x:Name="ShareButton" Label="Delen" Icon="Go" Click="ShareButton_Click" />
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
