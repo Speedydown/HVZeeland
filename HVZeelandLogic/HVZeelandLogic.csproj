@@ -44,6 +44,7 @@
     <TargetPlatform Include="Windows, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackgroundTask.cs" />
     <Compile Include="DataHandler.cs" />
     <Compile Include="Data\NewsItem.cs" />
     <Compile Include="Data\NewsItemParser.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Data\NewsLinkParser.cs" />
     <Compile Include="Data\P2000Item.cs" />
     <Compile Include="Data\P2000Parser.cs" />
+    <Compile Include="NotificationHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
