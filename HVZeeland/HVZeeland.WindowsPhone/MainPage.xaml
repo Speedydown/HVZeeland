@@ -25,7 +25,7 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
-        <Pivot x:Name="HVZPivot" Style="{StaticResource CustomPivotStyle}" Title="HVZeeland.nl" SelectionChanged="HVZPivot_SelectionChanged">
+        <Pivot x:Name="HVZPivot" Style="{StaticResource CustomPivotStyle}" Title="HVZeeland" SelectionChanged="HVZPivot_SelectionChanged">
             <PivotItem x:Name="LatestNews">
                 <PivotItem.Header>
                     <TextBlock Text="Nieuws" FontSize="21" FontWeight="Bold" Margin="0,5,0,0" />

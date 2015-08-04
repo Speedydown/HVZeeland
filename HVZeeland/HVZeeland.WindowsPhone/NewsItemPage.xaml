@@ -25,7 +25,7 @@
         <localControls:AdControl Grid.Row="1"/>
     </Grid>
     <Page.BottomAppBar>
-        <CommandBar Background="#096898" Foreground="White">
+        <CommandBar Background="#096898" Foreground="White" Visibility="Collapsed">
             <AppBarButton x:Uid="ShareButton" x:Name="ShareButton" Label="Delen" Icon="Go" Click="ShareButton_Click" />
         </CommandBar>
     </Page.BottomAppBar>

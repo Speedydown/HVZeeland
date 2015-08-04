@@ -102,13 +102,13 @@ namespace HVZeelandLogic
             }
             this.Author = HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(Author)).Trim();
             this.ContentSummary = HTMLParserUtil.CleanHTMLTagsFromString(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(ContentSummary))).Trim();
-            this.Body = new string[] { HTMLParserUtil.CleanHTMLTagsFromString(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(Body)).Trim()) }.ToList();
+            this.Body = new string[] { HTMLParserUtil.CleanHTMLTagsFromString(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(Body)).Trim())}.ToList();
             this.ImageList = ImageList;
             this.Comments = Comments;
         }
     }
 
-    public sealed class  Comment
+    public sealed class Comment
     {
         public string Name { get; private set; }
         public string Content { get; private set; }

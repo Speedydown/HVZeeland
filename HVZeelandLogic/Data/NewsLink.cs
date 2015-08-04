@@ -62,25 +62,30 @@ namespace HVZeelandLogic
         {
             this.URL = "http://www.hvzeeland.nl/" + URL;
             this.ImageURL = ImageURL;
-            this.Location = WebUtility.HtmlDecode(Location);
+            this.Location = WebUtility.HtmlDecode(Location).Trim();
             this.Title = WebUtility.HtmlDecode(Title);
-            this.Content = WebUtility.HtmlDecode(Content);
+            this.Content = WebUtility.HtmlDecode(Content).Trim();
             this.CommentCount = WebUtility.HtmlDecode(CommentCount);
             this.Time = WebUtility.HtmlDecode(Time);
 
             if (this.Location.EndsWith(" -"))
             {
-                this.Location = this.Location.Substring(0, Location.Length - 2);
+                this.Location = this.Location.Substring(0, Location.Length - 2).Trim();
             }
 
             if (this.Location.EndsWith(" - "))
             {
-                this.Location = this.Location.Substring(0, Location.Length - 3);
+                this.Location = this.Location.Substring(0, Location.Length - 3).Trim();
             }
 
             if (this.Content.StartsWith(" - "))
             {
-                this.Content = this.Content.Substring(3, this.Content.Length - 3);
+                this.Content = this.Content.Substring(3, this.Content.Length - 3).Trim();
+            }
+
+            if (this.Content.StartsWith("-"))
+            {
+                this.Content = this.Content.Substring(2, this.Content.Length - 2).Trim();
             }
         }
     }
