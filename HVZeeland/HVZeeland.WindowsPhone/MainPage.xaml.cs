@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.Storage;
 using Windows.System;
 using Windows.UI;
+using Windows.UI.Notifications;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -19,6 +21,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WindowsPhoneBackgroundTask;
 
 namespace HVZeeland
 {
@@ -29,7 +32,7 @@ namespace HVZeeland
 
         private static IList<NewsLink> newsLinks = null;
         private static IList<P2000Item> P2000Items = null;
-        private static DateTime TimeLoaded = DateTime.Now.AddDays(-1);
+        public static DateTime TimeLoaded = DateTime.Now.AddDays(-1);
 
         public MainPage()
         {
@@ -60,14 +63,32 @@ namespace HVZeeland
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            if (e.NavigationParameter != null && e.NavigationParameter.ToString() != "" && e.NavigationParameter.ToString() != "0")
+            {
+                await Favorites;
+                try
+                {
+                    int ID = Convert.ToInt32(e.NavigationParameter);
+                    WZWVDataPage.WZWVDataContext = await WZWVDataHandler.WDH.GetDataByID(ID, true, true);
+
+                    this.LastRetrieved = DateTime.Now.AddMinutes(-30);
+                    Frame.Navigate(typeof(WZWVDataPage));
+                    return;
+                }
+                catch
+                {
+
+                }
+            }
+
             StatusBar.GetForCurrentView().ForegroundColor = Colors.White;
+            TileUpdateManager.CreateTileUpdaterForApplication().Clear();
+            BadgeUpdateManager.CreateBadgeUpdaterForApplication().Clear();
+
             if (newsLinks == null || DateTime.Now.Subtract(TimeLoaded).TotalMinutes > 5)
             {
                 await LoadData();
-            }
-
-
-            
+            }     
         }
 
         private async Task<IList<NewsLink>> GetNewsLinksOperationAsTask()
@@ -117,6 +138,19 @@ namespace HVZeeland
             P2000ListView.ItemsSource = P2000Items;
 
             TimeLoaded = DateTime.Now;
+
+            ApplicationData applicationData = ApplicationData.Current;
+            ApplicationDataContainer localSettings = applicationData.LocalSettings;
+
+            try
+            {
+                localSettings.Values["LastNewsItem"] = newsLinks.First().URL;
+                NotificationHandler.Run();
+            }
+            catch
+            {
+
+            }
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)

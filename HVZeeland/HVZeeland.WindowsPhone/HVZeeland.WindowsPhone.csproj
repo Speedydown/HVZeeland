@@ -97,6 +97,10 @@
       <Project>{5a0c15e4-df61-4987-a6af-7b71722f11c1}</Project>
       <Name>HVZeelandLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\WindowsPhoneBackgroundTask\WindowsPhoneBackgroundTask.csproj">
+      <Project>{857f8e8b-b4b3-4dda-b113-496a39360072}</Project>
+      <Name>WindowsPhoneBackgroundTask</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\AdControl.xaml.cs">
@@ -116,6 +120,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\BadgeLogo.scale-140.png" />
     <Content Include="Assets\BadgeLogo.scale-240.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />

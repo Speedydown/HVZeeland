@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 
-namespace HVZeelandLogic
+namespace WindowsPhoneBackgroundTask
 {
     public static class NotificationHandler
     {
@@ -14,8 +14,8 @@ namespace HVZeelandLogic
             TimeTrigger hourlyTrigger = new TimeTrigger(30, false);
             await BackgroundExecutionManager.RequestAccessAsync();
 
-            string entryPoint = "HVZeelandLogic.BackgroundTask";
-            string taskName = "GroningenUpdateService";
+            string entryPoint = "WindowsPhoneBackgroundTask.BackgroundTask";
+            string taskName = "HVZeelandBackgroundWorker";
             SystemCondition userCondition = new SystemCondition(SystemConditionType.InternetAvailable);
 
             BackgroundTaskRegistration task = RegisterBackgroundTask(entryPoint, taskName, hourlyTrigger, userCondition);

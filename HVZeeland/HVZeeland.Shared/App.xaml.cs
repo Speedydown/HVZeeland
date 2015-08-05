@@ -35,6 +35,10 @@ namespace HVZeeland
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
+#if WINDOWS_PHONE_APP
+        MainPage.TimeLoaded = DateTime.Now.AddDays(-1);
+#endif
+
             if (rootFrame == null)
             {
                 rootFrame = new Frame();
