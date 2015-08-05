@@ -63,24 +63,6 @@ namespace HVZeeland
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            if (e.NavigationParameter != null && e.NavigationParameter.ToString() != "" && e.NavigationParameter.ToString() != "0")
-            {
-                await Favorites;
-                try
-                {
-                    int ID = Convert.ToInt32(e.NavigationParameter);
-                    WZWVDataPage.WZWVDataContext = await WZWVDataHandler.WDH.GetDataByID(ID, true, true);
-
-                    this.LastRetrieved = DateTime.Now.AddMinutes(-30);
-                    Frame.Navigate(typeof(WZWVDataPage));
-                    return;
-                }
-                catch
-                {
-
-                }
-            }
-
             StatusBar.GetForCurrentView().ForegroundColor = Colors.White;
             TileUpdateManager.CreateTileUpdaterForApplication().Clear();
             BadgeUpdateManager.CreateBadgeUpdaterForApplication().Clear();
@@ -88,7 +70,20 @@ namespace HVZeeland
             if (newsLinks == null || DateTime.Now.Subtract(TimeLoaded).TotalMinutes > 5)
             {
                 await LoadData();
-            }     
+            }
+
+            if (e.NavigationParameter != null && e.NavigationParameter.ToString() != "")
+            {
+                try
+                {
+                    Frame.Navigate(typeof(NewsItemPage), (e.NavigationParameter));
+                    return;
+                }
+                catch
+                {
+
+                }
+            }
         }
 
         private async Task<IList<NewsLink>> GetNewsLinksOperationAsTask()
