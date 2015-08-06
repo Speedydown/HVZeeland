@@ -64,18 +64,18 @@ namespace HVZeelandLogic
             this.ImageURL = ImageURL;
             this.Location = WebUtility.HtmlDecode(Location).Trim();
             this.Title = WebUtility.HtmlDecode(Title);
-            this.Content = WebUtility.HtmlDecode(Content).Trim();
+            this.Content = WebUtility.HtmlDecode(Content).Replace("<br />", "").Replace("\r\n", "").Trim();
             this.CommentCount = WebUtility.HtmlDecode(CommentCount);
             this.Time = WebUtility.HtmlDecode(Time);
 
             if (this.Location.EndsWith(" -"))
             {
-                this.Location = this.Location.Substring(0, Location.Length - 2).Trim();
+                this.Location = this.Location.Substring(0, this.Location.Length - 2).Trim();
             }
 
             if (this.Location.EndsWith(" - "))
             {
-                this.Location = this.Location.Substring(0, Location.Length - 3).Trim();
+                this.Location = this.Location.Substring(0, this.Location.Length - 3).Trim();
             }
 
             if (this.Content.StartsWith(" - "))

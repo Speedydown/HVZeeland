@@ -40,6 +40,7 @@ namespace WindowsBackgroundTask
                 IList<NewsLink> News = await DataHandler.GetNewsLinksByPage();
                 IList<NewsLink> NewNewsLinks = new List<NewsLink>();
 
+                CreateToast(News);
                 int NotificationCounter = 0;
 
                 foreach (NewsLink n in News)
@@ -49,7 +50,6 @@ namespace WindowsBackgroundTask
                         if (NotificationCounter > 0)
                         {
                             CreateTile(NewNewsLinks, NotificationCounter);
-                            CreateToast(NewNewsLinks);
                         }
 
                         return;

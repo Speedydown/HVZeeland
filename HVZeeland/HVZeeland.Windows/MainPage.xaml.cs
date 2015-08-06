@@ -91,6 +91,7 @@ namespace HVZeeland
             try
             {
                 NewsItemControl.DataContext = null;
+                NewsItemLoadingControl.DisplayLoadingError(false);
                 NewsItemLoadingControl.SetLoadingStatus(true);
 
                 if (URL != null)

@@ -1,5 +1,5 @@
-MainPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.805.2305.3355_Bundle\HVZeeland.WindowsPhone_2015.805.2305.3355_AnyCPU.appx
-SymbolPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\AppPackages\HVZeeland.WindowsPhone_2015.805.2305.3355_Test\HVZeeland.WindowsPhone_2015.805.2305.3355_AnyCPU.appxsym
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.805.2305.3355_Bundle\HVZeeland.WindowsPhone_2015.805.2305.3355_language-nl.appx
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.805.2305.3355_Bundle\HVZeeland.WindowsPhone_2015.805.2305.3355_scale-100.appx
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.805.2305.3355_Bundle\HVZeeland.WindowsPhone_2015.805.2305.3355_scale-140.appx
+MainPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3354_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3354_AnyCPU.appx
+SymbolPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\AppPackages\HVZeeland.WindowsPhone_2015.8051.2305.3354_Test\HVZeeland.WindowsPhone_2015.8051.2305.3354_AnyCPU.appxsym
+ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3354_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3354_language-nl.appx
+ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3354_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3354_scale-100.appx
+ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3354_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3354_scale-140.appx

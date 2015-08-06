@@ -57,6 +57,20 @@ namespace HVZeelandLogic
 
             string Author = HTMLParserUtil.GetContentAndSubstringInput("<div class=\"author\">", "</div>", Source, out Source, "", true);
             string ContentSummary = HTMLParserUtil.GetContentAndSubstringInput("<strong>", "</strong>", Source, out Source, "", false);
+
+            if (Source.IndexOf("<strong>") < 25 && Source.IndexOf("<strong>") > 0)
+            {
+                try
+                {
+                    Source = Source.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("</strong>", Source, true));
+                    ContentSummary += " " + HTMLParserUtil.GetContentAndSubstringInput("<strong>", "</strong>", Source, out Source, "", false);
+                }
+                catch
+                {
+
+                }
+            }
+
             string Body = HTMLParserUtil.GetContentAndSubstringInput("</strong>", "</div>", Source, out Source, "", false);
 
             List<string> Images = null;

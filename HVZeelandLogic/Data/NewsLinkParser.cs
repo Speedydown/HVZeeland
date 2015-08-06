@@ -59,6 +59,11 @@ namespace HVZeelandLogic
 
         private static NewsLink GetNewsLinkFromHTMLSource(string Source)
         {
+            if (Source.Contains("column-left") || Source.Contains("column-right"))
+            {
+                return GetNewsLinkFromHTMLSourceInColumns(Source);
+            }
+
             string OriginalSource = Source;
             string ImageURL = string.Empty;
 
@@ -71,17 +76,7 @@ namespace HVZeelandLogic
 
             }
 
-            string URL = string.Empty;
-
-            try
-            {
-                 URL = HTMLParserUtil.GetContentAndSubstringInput("<a href=\"", "\"><span class=\"time\">", Source, out Source, "", false);
-            }
-            catch
-            {
-                URL = HTMLParserUtil.GetContentAndSubstringInput("<a href=\"", "\"><span class=\"time\">", OriginalSource, out Source, "", false);
-            }
-
+            string URL = HTMLParserUtil.GetContentAndSubstringInput("<a href=\"", "\"><span class=\"time\">", Source, out Source, "", false);
             string Time = HTMLParserUtil.GetContentAndSubstringInput("class=\"time\">", " | </span>", Source, out Source, "", false);
             string Title = HTMLParserUtil.GetContentAndSubstringInput("</span>", "</a></div>", Source, out Source, "", false);
             string Location = HTMLParserUtil.GetContentAndSubstringInput("<p><strong>", "</strong>", Source, out Source, "", false);
@@ -96,6 +91,43 @@ namespace HVZeelandLogic
             catch
             {
                 CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder/Bekijk video (", " reacties", Source, out Source, "", false) + " reacties";
+            }
+
+            return new NewsLink(URL, ImageURL, Location, Title, Content, CommentCount, Time);
+        }
+
+        private static NewsLink GetNewsLinkFromHTMLSourceInColumns(string Source)
+        {
+            string URL = HTMLParserUtil.GetContentAndSubstringInput("<a href=\"", "\"><span class=\"time\">", Source, out Source, "", false);
+            string Time = HTMLParserUtil.GetContentAndSubstringInput("class=\"time\">", " | </span>", Source, out Source, "", false);
+            string Title = HTMLParserUtil.GetContentAndSubstringInput("</span>", "</a></div>", Source, out Source, "", false);
+
+
+            string ImageURL = string.Empty;
+
+            try
+            {
+                ImageURL = HTMLParserUtil.GetContentAndSubstringInput("<img src=\"", "\" width=", Source, out Source);
+            }
+            catch
+            {
+
+            }
+
+            
+
+            string Location = HTMLParserUtil.GetContentAndSubstringInput("<p><strong>", "</strong>", Source, out Source, "", false);
+            string Content = HTMLParserUtil.GetContentAndSubstringInput("</strong>", "</p>", Source, out Source, "", false);
+
+            string CommentCount = string.Empty;
+
+            try
+            {
+                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder (", " reactie", Source, out Source, "", false) + " reactie(s)";
+            }
+            catch
+            {
+                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder/Bekijk video (", " reactie", Source, out Source, "", false) + " reactie(s)";
             }
 
             return new NewsLink(URL, ImageURL, Location, Title, Content, CommentCount, Time);
