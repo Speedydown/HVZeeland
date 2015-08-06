@@ -68,11 +68,21 @@ namespace WindowsBackgroundTask
 
         private void CreateToast(IList<NewsLink> Content)
         {
+            if (Content == null || Content.Count == 0)
+            {
+                return;
+            }
+
             string LastToast = string.Empty;
 
             if (localSettings.Values["LastToast"] != null)
             {
                 LastToast = localSettings.Values["LastToast"].ToString();
+            }
+            else
+            {
+                localSettings.Values["LastToast"] = Content.First().URL;
+                return;
             }
 
             foreach (NewsLink n in Content)
@@ -88,6 +98,7 @@ namespace WindowsBackgroundTask
 
         private void CreateActualToast(string TileContent, string SecondaryContent, string ContentURL)
         {
+            localSettings.Values["LastToast"] = ContentURL;
             ToastTemplateType toastTemplate = ToastTemplateType.ToastText02;
             XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
 
