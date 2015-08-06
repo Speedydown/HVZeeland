@@ -7,6 +7,9 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+#if WINDOWS_APP
+using Windows.UI.ApplicationSettings;
+#endif
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -114,6 +117,24 @@ namespace HVZeeland
         protected override void OnWindowCreated(WindowCreatedEventArgs args)
         {
             base.OnWindowCreated(args);
+#if WINDOWS_APP
+            SettingsPane.GetForCurrentView().CommandsRequested += OnCommandsRequested;
+#endif
         }
+
+        #if WINDOWS_APP
+        private void OnCommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+
+            args.Request.ApplicationCommands.Add(new SettingsCommand(
+                "privacy policy", "privacy policy", (handler) => ShowCustomSettingFlyout()));
+        }
+
+        public void ShowCustomSettingFlyout()
+        {
+            privacyPolicy CustomSettingFlyout = new privacyPolicy();
+            CustomSettingFlyout.Show();
+        }
+#endif
     }
 }

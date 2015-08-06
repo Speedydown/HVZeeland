@@ -5,9 +5,64 @@
     xmlns:local="using:HVZeeland"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:localControls="using:HVZeeland.Controls"
+    xmlns:CLib="using:XamlControlLibrary"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/HVZStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
+    <Grid Background="#096898">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="White" Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#096898">
+                <Button x:Name="NewsSwitchButton" Margin="0" Content="Nieuws" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsEnabled="False" Click="NewsSwitchButton_Click"/>
+                <Button x:Name="P2000SwitchButton" Margin="0" Content="P2000" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="P2000SwitchButton_Click"/>
+                <Button x:Name="SearchSwitchButton" Margin="0" Content="Zoeken" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="SearchSwitchButton_Click"/>
+            </StackPanel>
+            <ScrollViewer VerticalScrollMode="Auto" Grid.Row="1">
+                <Grid x:Name="ContentGrid">
+                    <ListView x:Name="NewsListView" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
+                    <ListView x:Name="P2000ListView" ItemTemplate="{StaticResource HVZP2000}" IsItemClickEnabled="False" IsHitTestVisible="False" Visibility="Collapsed"/>
+
+                    <Grid x:Name="SearchGrid" Visibility="Collapsed">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="SearchTextbox" IsEnabled="True" Margin="4,5,20,5" PlaceholderText="Vul hier uw zoekterm in" KeyDown="SearchTextbox_KeyDown"/>
+                        <ListView x:Name="SearchListView" Grid.Row="1" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
+                        <CLib:LoadingControl Grid.Row="1" x:Name="SearchLoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Bezig met zoeken"/>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+            <CLib:LoadingControl x:Name="LoadingControl" Grid.Row="1"  TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Bezig met het ophalen van de laatste berichten."/>
+        </Grid>
+        <Grid Grid.Column="1" Background="White" Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </Grid.ChildrenTransitions>
+            <CLib:DisplayNewsItemControlWideScreen Grid.Row="0" x:Name="NewsItemControl"/>
+            <CLib:LoadingControl Grid.Row="0" x:Name="NewsItemLoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Een ogenblik geduld."/>
+            <localControls:AdControl Grid.Row="1"/>
+        </Grid>
     </Grid>
 </Page>

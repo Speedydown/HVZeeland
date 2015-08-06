@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WRCHelperLibrary", "..\Spee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsPhoneBackgroundTask", "WindowsPhoneBackgroundTask\WindowsPhoneBackgroundTask.csproj", "{857F8E8B-B4B3-4DDA-B113-496A39360072}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsBackgroundTask", "WindowsBackgroundTask\WindowsBackgroundTask.csproj", "{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		HVZeeland\HVZeeland.Shared\HVZeeland.Shared.projitems*{83ed9b9b-cd03-4afb-bf2c-a2eda3b8f116}*SharedItemsImports = 4
@@ -168,6 +170,16 @@ Global
 		{857F8E8B-B4B3-4DDA-B113-496A39360072}.Release|ARM.ActiveCfg = Release|Any CPU
 		{857F8E8B-B4B3-4DDA-B113-496A39360072}.Release|x64.ActiveCfg = Release|Any CPU
 		{857F8E8B-B4B3-4DDA-B113-496A39360072}.Release|x86.ActiveCfg = Release|Any CPU
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}.Release|x64.ActiveCfg = Release|Any CPU
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,5 +192,6 @@ Global
 		{BF62452C-C426-43A4-B86A-B277D6F42A32} = {0E3B8746-3965-48B7-8896-EC882BE85743}
 		{A055214E-2F67-4F68-B022-E454BA93DD15} = {0E3B8746-3965-48B7-8896-EC882BE85743}
 		{857F8E8B-B4B3-4DDA-B113-496A39360072} = {308ED38E-B590-4D0B-B116-F99FB7AC3C1B}
+		{EDAC9082-DFE8-4E2F-AA10-B2B4054A0DFA} = {308ED38E-B590-4D0B-B116-F99FB7AC3C1B}
 	EndGlobalSection
 EndGlobal

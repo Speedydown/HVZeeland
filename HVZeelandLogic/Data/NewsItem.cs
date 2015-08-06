@@ -41,6 +41,11 @@ namespace HVZeelandLogic
             }
         }
 
+        public Brush TitleColorWindows
+        {
+            get { return new SolidColorBrush(Color.FromArgb((byte)255, (byte)9, (byte)104, (byte)152)); }
+        }
+
         public Visibility MediaVisibilty
         {
             get

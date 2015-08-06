@@ -17,7 +17,7 @@ namespace HVZeelandLogic
 
         private static string RemoveHeader(string Input)
         {
-            return Input.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<div class=\"page\">", Input, true));
+            return Input.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<div class=\"news-", Input, false));
         }
 
         private static List<NewsLink> ParseContent(string Input)
@@ -29,7 +29,7 @@ namespace HVZeelandLogic
             {
                 try
                 {
-                    NewsLinksAsHTML.Add(HTMLParserUtil.GetContentAndSubstringInput("<div class=\"news-row\">", "<div class=\"clear\"></div>", Input, out Input));
+                    NewsLinksAsHTML.Add(HTMLParserUtil.GetContentAndSubstringInput("<div class=\"news-", ") </a></div>", Input, out Input));
                 }
                 catch
                 {
@@ -59,6 +59,7 @@ namespace HVZeelandLogic
 
         private static NewsLink GetNewsLinkFromHTMLSource(string Source)
         {
+            string OriginalSource = Source;
             string ImageURL = string.Empty;
 
             try
@@ -70,7 +71,17 @@ namespace HVZeelandLogic
 
             }
 
-            string URL = HTMLParserUtil.GetContentAndSubstringInput("<a href=\"", "\"><span class=\"time\">", Source, out Source, "", false);
+            string URL = string.Empty;
+
+            try
+            {
+                 URL = HTMLParserUtil.GetContentAndSubstringInput("<a href=\"", "\"><span class=\"time\">", Source, out Source, "", false);
+            }
+            catch
+            {
+                URL = HTMLParserUtil.GetContentAndSubstringInput("<a href=\"", "\"><span class=\"time\">", OriginalSource, out Source, "", false);
+            }
+
             string Time = HTMLParserUtil.GetContentAndSubstringInput("class=\"time\">", " | </span>", Source, out Source, "", false);
             string Title = HTMLParserUtil.GetContentAndSubstringInput("</span>", "</a></div>", Source, out Source, "", false);
             string Location = HTMLParserUtil.GetContentAndSubstringInput("<p><strong>", "</strong>", Source, out Source, "", false);
@@ -80,11 +91,11 @@ namespace HVZeelandLogic
 
             try
             {
-                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder (", ") </a></div>", Source, out Source, "", false);
+                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder (", " reacties", Source, out Source, "", false) + " reacties";
             }
             catch
             {
-                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder/Bekijk video (", ") </a></div>", Source, out Source, "", false);
+                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder/Bekijk video (", " reacties", Source, out Source, "", false) + " reacties";
             }
 
             return new NewsLink(URL, ImageURL, Location, Title, Content, CommentCount, Time);

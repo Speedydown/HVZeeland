@@ -50,7 +50,7 @@ namespace HVZeeland
 
         private static async Task ShowRateDialog()
         {
-            var messageDialog = new Windows.UI.Popups.MessageDialog("Wij bieden HVZeeland kostenloos aan en we zouden het op prijs stellen als u de HVZeeland app een positieve review geeft in de Windows Phone store.", "Bedankt");
+            var messageDialog = new Windows.UI.Popups.MessageDialog("Wij bieden HVZeeland kostenloos aan en we zouden het op prijs stellen als u de HVZeeland app een positieve review geeft in de Windows store.", "Bedankt");
             messageDialog.Commands.Add(
             new UICommand("Review", CommandInvokedHandler));
             messageDialog.Commands.Add(

@@ -1,0 +1,22 @@
+﻿<SettingsFlyout
+    x:Class="HVZeeland.privacyPolicy"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HVZeeland"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    IconSource="Assets/SmallLogo.png"
+    Title="privacy policy"
+    d:DesignWidth="346">
+
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+        <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
+            <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
+                <TextBlock Text="HVZeeland" Style="{StaticResource TitleTextBlockStyle}"/>
+                <TextBlock Margin="0,0,0,25" Text="HVZeeland brengt dagelijks nieuws en achtergronden over veiligheid en hulpverlening in de provincie Zeeland." Style="{StaticResource BodyTextBlockStyle}"/>
+                <HyperlinkButton  x:Name="privacyPolicyHyperLink" Padding="-5,0,0,0" Content="Privacy statement" Tag="http://localhost:4199/privacypolicy.aspx" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</SettingsFlyout>
