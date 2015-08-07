@@ -1,5 +1,5 @@
-MainPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3356_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3356_AnyCPU.appx
-SymbolPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\AppPackages\HVZeeland.WindowsPhone_2015.8051.2305.3356_Test\HVZeeland.WindowsPhone_2015.8051.2305.3356_AnyCPU.appxsym
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3356_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3356_language-nl.appx
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3356_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3356_scale-100.appx
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3356_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3356_scale-140.appx
+MainPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3357_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3357_AnyCPU.appx
+SymbolPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\AppPackages\HVZeeland.WindowsPhone_2015.8051.2305.3357_Test\HVZeeland.WindowsPhone_2015.8051.2305.3357_AnyCPU.appxsym
+ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3357_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3357_language-nl.appx
+ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3357_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3357_scale-100.appx
+ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\Release\HVZeeland.WindowsPhone_2015.8051.2305.3357_Bundle\HVZeeland.WindowsPhone_2015.8051.2305.3357_scale-140.appx

@@ -35,9 +35,10 @@ namespace HVZeelandLogic
                 }
 
                 IList<NewsLink> News = await DataHandler.GetNewsLinksByPage();
-
-                ToastHandler.CreateToast(News);
                 int NotificationCounter = 0;
+
+                //Test Code
+                //LastURL = News[3].URL;
 
                 foreach (NewsLink n in News)
                 {

@@ -24,6 +24,7 @@ namespace WindowsBackgroundTask
             if (NewNewsLinks.Count > 0)
             {
                 CreateTile(NewNewsLinks, NewNewsLinks.Count);
+                ToastHandler.CreateToast(NewNewsLinks);
             }
 
             deferral.Complete();

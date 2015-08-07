@@ -32,7 +32,10 @@ namespace HVZeelandLogic
                 return;
             }
 
-            localSettings.Values["LastToast"] = Content.First();
+            //Test Value
+            //LastToast = Content[2].URL;
+
+            localSettings.Values["LastToast"] = Content.First().URL;
 
             int ToastCounter = 0;
 
