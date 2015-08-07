@@ -18,103 +18,15 @@ namespace WindowsBackgroundTask
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
             BackgroundTaskDeferral deferral = taskInstance.GetDeferral();
-            await GenerateNotifications();
+
+            IList<NewsLink> NewNewsLinks = await NotificationDataHandler.GenerateNotifications();
+
+            if (NewNewsLinks.Count > 0)
+            {
+                CreateTile(NewNewsLinks, NewNewsLinks.Count);
+            }
+
             deferral.Complete();
-        }
-
-        private async Task GenerateNotifications()
-        {
-            try
-            {
-                string LastURL = string.Empty;
-                
-                if (localSettings.Values["LastNewsItem"] != null)
-                {
-                    LastURL = localSettings.Values["LastNewsItem"].ToString();
-                }
-                else
-                {
-                    return;
-                }
-
-                IList<NewsLink> News = await DataHandler.GetNewsLinksByPage();
-                IList<NewsLink> NewNewsLinks = new List<NewsLink>();
-
-                CreateToast(News);
-                int NotificationCounter = 0;
-
-                foreach (NewsLink n in News)
-                {
-                    if (n.URL == LastURL)
-                    {
-                        if (NotificationCounter > 0)
-                        {
-                            CreateTile(NewNewsLinks, NotificationCounter);
-                        }
-
-                        return;
-                    }
-
-                    NewNewsLinks.Add(n);
-                    NotificationCounter++;
-
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
-        private void CreateToast(IList<NewsLink> Content)
-        {
-            if (Content == null || Content.Count == 0)
-            {
-                return;
-            }
-
-            string LastToast = string.Empty;
-
-            if (localSettings.Values["LastToast"] != null)
-            {
-                LastToast = localSettings.Values["LastToast"].ToString();
-            }
-            else
-            {
-                localSettings.Values["LastToast"] = Content.First().URL;
-                return;
-            }
-
-            foreach (NewsLink n in Content)
-            {
-                if (n.URL == LastToast)
-                {
-                    break;
-                }
-
-                CreateActualToast(n.Title, n.Content, n.URL);
-            }
-        }
-
-        private void CreateActualToast(string TileContent, string SecondaryContent, string ContentURL)
-        {
-            localSettings.Values["LastToast"] = ContentURL;
-            ToastTemplateType toastTemplate = ToastTemplateType.ToastText02;
-            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-
-            XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
-            toastTextElements[0].AppendChild(toastXml.CreateTextNode(TileContent));
-            toastTextElements[1].AppendChild(toastXml.CreateTextNode(SecondaryContent));
-
-            IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-            XmlElement audio = toastXml.CreateElement("audio");
-            audio.SetAttribute("src", "ms-winsoundevent:Notification.IM");
-
-            toastNode.AppendChild(audio);
-
-            ((XmlElement)toastNode).SetAttribute("launch", ContentURL);
-            ToastNotification toast = new ToastNotification(toastXml);
-            ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
         private void CreateTile(IList<NewsLink> Content, int Counter)

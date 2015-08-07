@@ -51,7 +51,9 @@
     <Compile Include="Data\NewsLinkParser.cs" />
     <Compile Include="Data\P2000Item.cs" />
     <Compile Include="Data\P2000Parser.cs" />
+    <Compile Include="NotificationDataHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToastHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Speedydown.nl-API\WebCrawlerTools\WebCrawlerTools.csproj">

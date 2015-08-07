@@ -34,8 +34,8 @@
             </StackPanel>
             <ScrollViewer VerticalScrollMode="Auto" Grid.Row="1">
                 <Grid x:Name="ContentGrid">
-                    <ListView x:Name="NewsListView" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
-                    <ListView x:Name="P2000ListView" ItemTemplate="{StaticResource HVZP2000}" IsItemClickEnabled="False" IsHitTestVisible="False" Visibility="Collapsed"/>
+                    <ListView x:Name="NewsListView" SelectionMode="None" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
+                    <ListView x:Name="P2000ListView" SelectionMode="None" ItemTemplate="{StaticResource HVZP2000}" IsItemClickEnabled="False" IsHitTestVisible="False" Visibility="Collapsed"/>
 
                     <Grid x:Name="SearchGrid" Visibility="Collapsed">
                         <Grid.RowDefinitions>
@@ -43,7 +43,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBox x:Name="SearchTextbox" IsEnabled="True" Margin="4,5,20,5" PlaceholderText="Vul hier uw zoekterm in" KeyDown="SearchTextbox_KeyDown"/>
-                        <ListView x:Name="SearchListView" Grid.Row="1" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
+                        <ListView x:Name="SearchListView" SelectionMode="None" Grid.Row="1" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
                         <CLib:LoadingControl Grid.Row="1" x:Name="SearchLoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Bezig met zoeken"/>
                     </Grid>
                 </Grid>
