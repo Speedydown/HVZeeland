@@ -22,6 +22,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WindowsPhoneBackgroundTask;
+using WRCHelperLibrary;
 
 namespace HVZeeland
 {
@@ -140,7 +141,7 @@ namespace HVZeeland
             try
             {
                 localSettings.Values["LastNewsItem"] = newsLinks.First().URL;
-                NotificationHandler.Run();
+                NotificationHandler.Run("WindowsPhoneBackgroundTask.BackgroundTask", "HVZeelandBackgroundWorker");
             }
             catch
             {
