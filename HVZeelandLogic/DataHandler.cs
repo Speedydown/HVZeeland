@@ -61,7 +61,7 @@ namespace HVZeelandLogic
 
         public static IAsyncAction PostAppStats(string URL)
         {
-            return SearchHelper(URL).AsAsyncAction();
+            return PostAppStatsHelper(URL).AsAsyncAction();
         }
 
         private static async Task PostAppStatsHelper(string URL)
