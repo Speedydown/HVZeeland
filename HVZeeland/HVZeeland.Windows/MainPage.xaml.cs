@@ -10,6 +10,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.System;
+using Windows.UI.Core;
 using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -77,7 +78,7 @@ namespace HVZeeland
                 try
                 {
                     await this.OpenNewsItem(e.NavigationParameter.ToString());
-                   
+
                     return;
                 }
                 catch
@@ -262,22 +263,32 @@ namespace HVZeeland
         {
             while (!StopRefresh)
             {
-                await Task.Delay(300000);
+                await Task.Delay(150000);
 
                 IList<NewsLink> NewsLinks = await GetNewsLinksOperationAsTask();
 
-                if ((NewsLinks.Count > 0 && NewsLinks.First().URL != newsLinks.First().URL) || newsLinks.Count == 0)
+                try
                 {
-                    newsLinks = NewsLinks;
-                    NewsListView.ItemsSource = newsLinks;
+                    Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+                    {
+                        if ((NewsLinks.Count > 0 && NewsLinks.First().URL != newsLinks.First().URL) || newsLinks.Count == 0)
+                        {
+                            newsLinks = NewsLinks;
+                            NewsListView.ItemsSource = newsLinks;
+                        }
+
+                        IList<P2000Item> p2000Items = await GetP2000ItemsOperationAsTask();
+
+                        if ((p2000Items.Count > 0 && p2000Items.First().Content != P2000Items.First().Content) || P2000Items.Count == 0)
+                        {
+                            P2000Items = p2000Items;
+                            P2000ListView.ItemsSource = P2000Items;
+                        }
+                    });
                 }
-
-                IList<P2000Item> p2000Items = await GetP2000ItemsOperationAsTask();
-
-                if ((p2000Items.Count > 0 && p2000Items.First().Content != P2000Items.First().Content) || P2000Items.Count == 0)
+                catch
                 {
-                    P2000Items = p2000Items;
-                    P2000ListView.ItemsSource = P2000Items;
+
                 }
             }
         }

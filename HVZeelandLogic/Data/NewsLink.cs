@@ -5,10 +5,11 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
+using WRCHelperLibrary;
 
 namespace HVZeelandLogic
 {
-    public sealed class NewsLink
+    public sealed class NewsLink : INewsLink
     {
         public string URL { get; private set; }
         public string ImageURL { get; private set; }
