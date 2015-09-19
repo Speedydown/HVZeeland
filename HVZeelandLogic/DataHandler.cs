@@ -18,6 +18,11 @@ namespace HVZeelandLogic
 
         private static async Task<IList<NewsLink>> GetNewsLinksByPageHelper()
         {
+            if (HTTPGetUtil.Cookiejar == null || HTTPGetUtil.Cookiejar.Count == 0)
+            {
+                await HTTPGetUtil.GetDataAsStringFromURL("http://www.hvzeeland.nl/accepteer-cookies?next=http://www.hvzeeland.nl/");
+            }   
+
             string PageSource = await HTTPGetUtil.GetDataAsStringFromURL("http://www.hvzeeland.nl/");
 
             return NewsLinkParser.GetNewsLinksFromSource(PageSource);

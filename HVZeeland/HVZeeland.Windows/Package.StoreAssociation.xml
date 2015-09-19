@@ -360,9 +360,11 @@
     <MainPackageIdentityName>52891Speedydown.Joop</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.LeeuwarderCourant</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.leftovers</MainPackageIdentityName>
-    <MainPackageIdentityName>52891Speedydown.Pownews</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.PowNed</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.SpreekwoordenApp</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.Supermarktaanbiedingen</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.Wldnet</MainPackageIdentityName>
+    <MainPackageIdentityName>52891Speedydown.WieZitWaar</MainPackageIdentityName>
     <MainPackageIdentityName>52891Speedydown.WieZitWaarVandaag</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://dev.windows.com/dashboard/Application?appId=9NBLGGH1NS9Z">
@@ -370,17 +372,17 @@
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture>Neutral</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.1.0.3</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture>Neutral</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.1.0.3</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture>Neutral</PackageArchitecture>
-        <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
+        <PackageMaxArchitectureVersion>1.1.0.3</PackageMaxArchitectureVersion>
       </PackageInfo>
     </BundleInfo>
   </PackageInfoList>

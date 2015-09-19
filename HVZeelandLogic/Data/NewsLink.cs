@@ -62,7 +62,7 @@ namespace HVZeelandLogic
         public NewsLink(string URL, string ImageURL, string Location, string Title, string Content, string CommentCount, string Time)
         {
             this.URL = "http://www.hvzeeland.nl/" + URL;
-            this.ImageURL = ImageURL;
+            this.ImageURL = ImageURL.Length > 0 ?  "http://www.hvzeeland.nl/" + ImageURL : string.Empty;
             this.Location = WebUtility.HtmlDecode(Location).Trim();
             this.Title = WebUtility.HtmlDecode(Title);
             this.Content = WebUtility.HtmlDecode(Content).Replace("<br />", "").Replace("\r\n", "").Trim();

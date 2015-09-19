@@ -44,7 +44,7 @@
                         </Grid.RowDefinitions>
                         <TextBox x:Name="SearchTextbox" IsEnabled="True" Margin="4,5,20,5" PlaceholderText="Vul hier uw zoekterm in" KeyDown="SearchTextbox_KeyDown"/>
                         <ListView x:Name="SearchListView" SelectionMode="None" Grid.Row="1" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
-                        <CLib:LoadingControl Grid.Row="1" x:Name="SearchLoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Bezig met zoeken"/>
+                        <CLib:LoadingControl Grid.Row="1" x:Name="SearchLoadingControl" TextColor="#096898" ErrorText="We konden niks vinden met deze zoekterm :(" ErrorSubText="Probeer het opnieuw!."  LoadingText="Bezig met zoeken"/>
                     </Grid>
                 </Grid>
             </ScrollViewer>

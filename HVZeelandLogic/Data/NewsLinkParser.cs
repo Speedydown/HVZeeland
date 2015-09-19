@@ -29,7 +29,7 @@ namespace HVZeelandLogic
             {
                 try
                 {
-                    NewsLinksAsHTML.Add(HTMLParserUtil.GetContentAndSubstringInput("<div class=\"news-", ") </a></div>", Input, out Input));
+                    NewsLinksAsHTML.Add(HTMLParserUtil.GetContentAndSubstringInput("<div class=\"news-", ") </a></div>", Input, out Input, "</a>\n</div>"));
                 }
                 catch
                 {
@@ -69,16 +69,16 @@ namespace HVZeelandLogic
 
             try
             {
-                ImageURL = HTMLParserUtil.GetContentAndSubstringInput("<img src=\"", "\" width=", Source, out Source);
+                ImageURL = HTMLParserUtil.GetContentAndSubstringInput("<img src=\"", "\" alt=\"", Source, out Source);
             }
             catch
             {
 
             }
 
-            string URL = HTMLParserUtil.GetContentAndSubstringInput("<a href=\"", "\"><span class=\"time\">", Source, out Source, "", false);
-            string Time = HTMLParserUtil.GetContentAndSubstringInput("class=\"time\">", " | </span>", Source, out Source, "", false);
-            string Title = HTMLParserUtil.GetContentAndSubstringInput("</span>", "</a></div>", Source, out Source, "", false);
+            string URL = HTMLParserUtil.GetContentAndSubstringInput("<a href=\"", "\"><span>", Source, out Source, "", false);
+            string Time = HTMLParserUtil.GetContentAndSubstringInput("<span>", " | </span>", Source, out Source, "", false);
+            string Title = HTMLParserUtil.GetContentAndSubstringInput("</span>", "</a></h2>", Source, out Source, "", false);
             string Location = HTMLParserUtil.GetContentAndSubstringInput("<p><strong>", "</strong>", Source, out Source, "", false);
             string Content = HTMLParserUtil.GetContentAndSubstringInput("</strong>", "</p>", Source, out Source, "", false);
 
@@ -123,11 +123,18 @@ namespace HVZeelandLogic
 
             try
             {
-                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder (", " reactie", Source, out Source, "", false) + " reactie(s)";
+                try
+                {
+                    CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder (", " reactie", Source, out Source, "", false) + " reactie(s)";
+                }
+                catch
+                {
+                    CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder/Bekijk video (", " reactie", Source, out Source, "", false) + " reactie(s)";
+                }
             }
             catch
             {
-                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder/Bekijk video (", " reactie", Source, out Source, "", false) + " reactie(s)";
+
             }
 
             return new NewsLink(URL, ImageURL, Location, Title, Content, CommentCount, Time);

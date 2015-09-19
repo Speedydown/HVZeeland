@@ -18,13 +18,14 @@ namespace HVZeelandLogic
 
         private static string RemoveHeader(string Input)
         {
-            return Input.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<div class=\"news-page\">", Input, true));
+            return Input.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<div class=\"news-item\">", Input, true));
         }
 
         private static NewsItem GetNewsItemFromHTML(string Source)
         {
-            string Title = HTMLParserUtil.GetContentAndSubstringInput("<div class=\"title\">", "</div>", Source, out Source, "", false);
-            string Updated = HTMLParserUtil.GetContentAndSubstringInput("<div class=\"added-updated\">", "<div class=\"social\">", Source, out Source, "", true);
+            string Title = HTMLParserUtil.GetContentAndSubstringInput("<h1>", "</h1>", Source, out Source, "", false);
+            Source = Source.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<div class=\"added\">", Source, false));
+            string Updated = HTMLParserUtil.GetContentAndSubstringInput("<div class=\"added\">", " </div>", Source, out Source, "", true);
             string Added = string.Empty;
 
             try
@@ -34,7 +35,7 @@ namespace HVZeelandLogic
                 if (TimeStamp.Length == 2)
                 {
                     Added =  TimeStamp[0];
-                    Updated = TimeStamp[1];
+                    Updated = TimeStamp[1].Replace("</div>","");
                 }
             }
             catch
@@ -55,7 +56,7 @@ namespace HVZeelandLogic
 
             Source = Source.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<div class=\"author\">", Source, false));
 
-            string Author = HTMLParserUtil.GetContentAndSubstringInput("<div class=\"author\">", "</div>", Source, out Source, "", true);
+            string Author = HTMLParserUtil.GetContentAndSubstringInput("<div class=\"author\">", "</div>", Source, out Source, "", true).Replace("<span>", "");
             string ContentSummary = HTMLParserUtil.GetContentAndSubstringInput("<strong>", "</strong>", Source, out Source, "", false);
 
             if (Source.IndexOf("<strong>") < 25 && Source.IndexOf("<strong>") > 0)
@@ -77,7 +78,7 @@ namespace HVZeelandLogic
 
             try
             {
-                Images = GetImageURLFromHTMLBlock(HTMLParserUtil.GetContentAndSubstringInput("<div class=\"fotos\">", "<div class=\"module-list\">", Source, out Source, "", false));
+                Images = GetImageURLFromHTMLBlock(HTMLParserUtil.GetContentAndSubstringInput("<div class=\"photos\">", "<div class=\"block\">", Source, out Source, "", false));
             }
             catch
             {
@@ -110,7 +111,7 @@ namespace HVZeelandLogic
                 {
                     string ImageURL = HTMLParserUtil.GetContentAndSubstringInput("src=\"", "\" alt", Source, out Source);
                     ImageURL = ImageURL.Replace("/thumbs", "");
-                    ImageURLs.Add(ImageURL);
+                    ImageURLs.Add("http://www.hvzeeland.nl" + ImageURL);
                 }
                 catch
                 {

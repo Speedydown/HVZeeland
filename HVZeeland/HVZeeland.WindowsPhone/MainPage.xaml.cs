@@ -141,7 +141,7 @@ namespace HVZeeland
             try
             {
                 localSettings.Values["LastNewsItem"] = newsLinks.First().URL;
-                NotificationHandler.Run("WindowsPhoneBackgroundTask.BackgroundTask", "HVZeelandBackgroundWorker");
+                NotificationHandler.Run("WindowsPhoneBackgroundTask.BackgroundTask", "HVZeelandBackgroundWorker", 30);
             }
             catch
             {
