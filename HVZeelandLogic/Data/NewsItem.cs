@@ -103,6 +103,7 @@ namespace HVZeelandLogic
 
             if (MediaFile.Length != 0)
             {
+                MediaFile = !MediaFile.StartsWith("http") ? "http://www.hvzeeland.nl" + MediaFile : MediaFile;
                 this.MediaFile = new Uri(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(MediaFile)).Trim());
             }
             this.Author = HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(Author)).Trim();

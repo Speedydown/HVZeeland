@@ -32,8 +32,8 @@ namespace WindowsPhoneBackgroundTask
 
         private void CreateTile(IList<INewsLink> Content, int Counter)
         {
-            XmlDocument RectangleTile = TileXmlHandler.CreateRectangleTile(TileUpdateManager.GetTemplateContent(TileTemplateType.TileWide310x150IconWithBadgeAndText), Content, Counter, "ms-appx:///assets/Square71x71Logo.scale-240.png", "HVZeeland");
-            XmlDocument SquareTile = TileXmlHandler.CreateSquareTile(TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150IconWithBadge), Content, "ms-appx:///assets/SQUARE71x71Logo.scale-240.png", "HVZeeland");
+            XmlDocument RectangleTile = TileXmlHandler.CreateRectangleTile(TileUpdateManager.GetTemplateContent(TileTemplateType.TileWide310x150IconWithBadgeAndText), Content, Counter, "ms-appx:///assets/Square71x71Logo.scale-240.png", "HVZeeland", "HVZeeland");
+            XmlDocument SquareTile = TileXmlHandler.CreateSquareTile(TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150IconWithBadge), Content, "ms-appx:///assets/SQUARE71x71Logo.scale-240.png", "HVZeeland", "HVZeeland");
             XmlDocument SmallTile = TileXmlHandler.CreateSmallSquareTile(TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare71x71IconWithBadge), "ms-appx:///assets/SQUARE71x71Logo.scale-240.png", "HVZeeland");
 
             TileXmlHandler.CreateTileUpdate(new XmlDocument[] { RectangleTile, SquareTile, SmallTile });

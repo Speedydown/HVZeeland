@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="52891Speedydown.HVZeeland" Publisher="CN=66C50CC1-FBB4-401C-87F4-C13E4975CFAE" Version="1.1.0.4" />
+  <Identity Name="52891Speedydown.HVZeeland" Publisher="CN=66C50CC1-FBB4-401C-87F4-C13E4975CFAE" Version="1.1.0.5" />
   <Properties>
     <DisplayName>HVZeeland</DisplayName>
     <PublisherDisplayName>Speedydown</PublisherDisplayName>

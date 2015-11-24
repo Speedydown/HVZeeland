@@ -86,11 +86,11 @@ namespace HVZeelandLogic
 
             try
             {
-                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder (", " reacties", Source, out Source, "", false) + " reacties";
+                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder (", " reactie", Source, out Source, "", false) + " reacties";
             }
             catch
             {
-                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder/Bekijk video (", " reacties", Source, out Source, "", false) + " reacties";
+                CommentCount = HTMLParserUtil.GetContentAndSubstringInput("Lees verder/Bekijk video (", " reactie", Source, out Source, "", false) + " reacties";
             }
 
             return new NewsLink(URL, ImageURL, Location, Title, Content, CommentCount, Time);
