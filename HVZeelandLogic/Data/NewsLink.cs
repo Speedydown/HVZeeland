@@ -69,6 +69,11 @@ namespace HVZeelandLogic
             this.CommentCount = WebUtility.HtmlDecode(CommentCount);
             this.Time = WebUtility.HtmlDecode(Time);
 
+            if (this.Location.Contains("-"))
+            {
+                this.Location = this.Location.Replace("-", "").Trim();
+            }
+
             if (this.Location.EndsWith(" -"))
             {
                 this.Location = this.Location.Substring(0, this.Location.Length - 2).Trim();
