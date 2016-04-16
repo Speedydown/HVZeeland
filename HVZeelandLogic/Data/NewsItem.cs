@@ -103,7 +103,6 @@ namespace HVZeelandLogic
 
             if (MediaFile.Length != 0)
             {
-<<<<<<< HEAD
                 MediaFile = HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode((MediaFile.ToLower().StartsWith("http") ? string.Empty : "http://hvzeeland.nl") + MediaFile)).Trim();
 
                 if (MediaFile.ToLower().Contains(".mp4"))
@@ -112,12 +111,8 @@ namespace HVZeelandLogic
                 }
 
                 this.MediaFile = new Uri(MediaFile);
-
-
-=======
                 MediaFile = !MediaFile.StartsWith("http") ? "http://www.hvzeeland.nl" + MediaFile : MediaFile;
                 this.MediaFile = new Uri(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(MediaFile)).Trim());
->>>>>>> origin/master
             }
             this.Author = HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(Author)).Trim();
             this.ContentSummary = HTMLParserUtil.CleanHTMLTagsFromString(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(ContentSummary))).Trim();

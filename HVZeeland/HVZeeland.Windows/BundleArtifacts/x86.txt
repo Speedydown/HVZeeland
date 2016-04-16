@@ -1,2 +1,2 @@
-MainPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\x86\Release\HVZeeland.Windows_1.1.0.6_Bundle\HVZeeland.Windows_1.1.0.6_x86.appx
-SymbolPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\AppPackages\HVZeeland.Windows_1.1.0.6_Test\HVZeeland.Windows_1.1.0.6_x86.appxsym
+MainPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\x86\Release\HVZeeland.Windows_1.1.0.7_Bundle\HVZeeland.Windows_1.1.0.7_x86.appx
+SymbolPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\AppPackages\HVZeeland.Windows_1.1.0.7_Test\HVZeeland.Windows_1.1.0.7_x86.appxsym
