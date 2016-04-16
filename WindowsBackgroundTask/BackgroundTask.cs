@@ -1,4 +1,6 @@
-﻿using HVZeelandLogic;
+﻿using BaseLogic.Notifications;
+using BaseLogic.Xaml_Controls.Interfaces;
+using HVZeelandLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,6 @@ using Windows.ApplicationModel.Background;
 using Windows.Data.Xml.Dom;
 using Windows.Storage;
 using Windows.UI.Notifications;
-using WRCHelperLibrary;
 
 namespace WindowsBackgroundTask
 {
@@ -36,7 +37,7 @@ namespace WindowsBackgroundTask
         {
             XmlDocument RectangleTile = TileXmlHandler.CreateRectangleTile2(TileUpdateManager.GetTemplateContent(TileTemplateType.TileWide310x150ImageAndText02), Content, Counter, "ms-appx:///assets/Wide310x150Logo.scale-100.png", "HVZeeland");
             XmlDocument SquareTile = TileXmlHandler.CreateLargeSquareTile(TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare310x310Text01), Content);
-            XmlDocument SmallTile = TileXmlHandler.CreateSquareTile(TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150PeekImageAndText03), Content, "ms-appx:///assets/Logo.scale-100.png", "HVZeeland");
+            XmlDocument SmallTile = TileXmlHandler.CreateSquareTile(TileUpdateManager.GetTemplateContent(TileTemplateType.TileSquare150x150PeekImageAndText03), Content, "ms-appx:///assets/Logo.scale-100.png", "HVZeeland", "HVZeeland");
 
             TileXmlHandler.CreateTileUpdate(new XmlDocument[] { RectangleTile, SquareTile, SmallTile });
         }

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BaseLogic.HtmlUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using WebCrawlerTools;
 
 namespace HVZeelandLogic
 {
@@ -23,6 +23,7 @@ namespace HVZeelandLogic
 
         private static NewsItem GetNewsItemFromHTML(string Source)
         {
+            string BackupSource = Source;
             string Title = HTMLParserUtil.GetContentAndSubstringInput("<h1>", "</h1>", Source, out Source, "", false);
             Source = Source.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<div class=\"added\">", Source, false));
             string Updated = HTMLParserUtil.GetContentAndSubstringInput("<div class=\"added\">", " </div>", Source, out Source, "", true);
@@ -72,7 +73,7 @@ namespace HVZeelandLogic
                 }
             }
 
-            string Body = HTMLParserUtil.GetContentAndSubstringInput("</strong>", "</div>", Source, out Source, "", false);
+            string Body = HTMLParserUtil.GetContentAndSubstringInput("</strong>", "</div>", Source, out Source, "", false).Replace("</p><p>", "\n\n");
 
             List<string> Images = null;
 
@@ -82,8 +83,20 @@ namespace HVZeelandLogic
             }
             catch
             {
-                //No Images
-                Images = new List<string>();
+                
+            }
+
+            if (Images == null)
+            {
+                try
+                {
+                    Images = GetImagesFromSlider(BackupSource);
+                }
+                catch
+                {
+                    //No Images
+                    Images = new List<string>();
+                }
             }
 
             List<Comment> Comments = null;
@@ -104,6 +117,28 @@ namespace HVZeelandLogic
         private static List<string> GetImageURLFromHTMLBlock(string Source)
         {
             List<string> ImageURLs = new List<string>();
+
+            while (Source.Length > 0)
+            {
+                try
+                {
+                    string ImageURL = HTMLParserUtil.GetContentAndSubstringInput("src=\"", "\" alt", Source, out Source);
+                    ImageURL = ImageURL.Replace("/thumbs", "");
+                    ImageURLs.Add("http://www.hvzeeland.nl" + ImageURL);
+                }
+                catch
+                {
+                    break;
+                }
+            }
+
+            return ImageURLs;
+        }
+
+        private static List<string> GetImagesFromSlider(string Source)
+        {
+            List<string> ImageURLs = new List<string>();
+            Source = HTMLParserUtil.GetContentAndSubstringInput("<div class=\"photo-slider\">", "<div class=\"paginator\"", Source, out Source);
 
             while (Source.Length > 0)
             {

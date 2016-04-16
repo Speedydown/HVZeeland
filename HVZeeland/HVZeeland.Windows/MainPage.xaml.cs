@@ -1,4 +1,7 @@
-﻿using HVZeeland.Common;
+﻿using BaseLogic.ArticleCounter;
+using BaseLogic.ClientIDHandler;
+using BaseLogic.Notifications;
+using HVZeeland.Common;
 using HVZeelandLogic;
 using System;
 using System.Collections.Generic;
@@ -20,7 +23,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WindowsBackgroundTask;
-using WRCHelperLibrary;
 
 namespace HVZeeland
 {
@@ -112,8 +114,8 @@ namespace HVZeeland
                 NewsItemLoadingControl.SetLoadingStatus(false);
             }
 
-            await ArticleCounter.AddArticleCount();
-            Task t = Task.Run(() => DataHandler.PostAppStats(URL));
+            await ArticleCounter.AddArticleCount("Wij bieden HVZeeland kostenloos aan en we zouden het op prijs stellen als u de HVZeeland app een positieve review geeft in de Windows store.", "Bedankt");
+            Task t = Task.Run(() => ClientIDHandler.instance.PostAppStats(ClientIDHandler.AppName.HVZeeland));
         }
 
         private async Task<IList<NewsLink>> GetNewsLinksOperationAsTask()

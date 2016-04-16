@@ -1,4 +1,5 @@
-﻿using HVZeeland.Common;
+﻿using BaseLogic.Notifications;
+using HVZeeland.Common;
 using HVZeelandLogic;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WindowsPhoneBackgroundTask;
-using WRCHelperLibrary;
 
 namespace HVZeeland
 {
@@ -64,6 +64,7 @@ namespace HVZeeland
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            await StatusBar.GetForCurrentView().HideAsync();
             StatusBar.GetForCurrentView().ForegroundColor = Colors.White;
             TileUpdateManager.CreateTileUpdaterForApplication().Clear();
             BadgeUpdateManager.CreateBadgeUpdaterForApplication().Clear();

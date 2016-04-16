@@ -1,14 +1,14 @@
-﻿using System;
+﻿using BaseLogic.HtmlUtil;
+using BaseLogic.Xaml_Controls.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using WebCrawlerTools;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
-using WRCHelperLibrary;
 
 namespace HVZeelandLogic
 {
@@ -64,7 +64,7 @@ namespace HVZeelandLogic
 
         public Visibility SummaryVisibilty
         {
-            get 
+            get
             {
                 return Visibility.Visible;
             }
@@ -103,11 +103,20 @@ namespace HVZeelandLogic
 
             if (MediaFile.Length != 0)
             {
-                this.MediaFile = new Uri(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(MediaFile)).Trim());
+                MediaFile = HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode((MediaFile.ToLower().StartsWith("http") ? string.Empty : "http://hvzeeland.nl") + MediaFile)).Trim();
+
+                if (MediaFile.ToLower().Contains(".mp4"))
+                {
+                    MediaFile = MediaFile.Substring(0, MediaFile.ToLower().IndexOf(".mp4") + 4);
+                }
+
+                this.MediaFile = new Uri(MediaFile);
+
+
             }
             this.Author = HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(Author)).Trim();
             this.ContentSummary = HTMLParserUtil.CleanHTMLTagsFromString(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(ContentSummary))).Trim();
-            this.Body = new string[] { HTMLParserUtil.CleanHTMLTagsFromString(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(Body)).Trim())}.ToList();
+            this.Body = new string[] { HTMLParserUtil.CleanHTMLTagsFromString(HTMLParserUtil.CleanHTMLString(WebUtility.HtmlDecode(Body)).Trim()) }.ToList();
             this.ImageList = ImageList;
             this.Comments = Comments;
         }

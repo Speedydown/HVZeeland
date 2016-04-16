@@ -1,4 +1,7 @@
-﻿using HVZeeland.Common;
+﻿using BaseLogic.ArticleCounter;
+using BaseLogic.ClientIDHandler;
+using BaseLogic.Utils;
+using HVZeeland.Common;
 using HVZeelandLogic;
 using System;
 using System.Collections.Generic;
@@ -6,7 +9,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using WebCrawlerTools;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
@@ -89,8 +91,8 @@ namespace HVZeeland
                 LoadingControl.SetLoadingStatus(false);
             }
 
-            await ArticleCounter.AddArticleCount();
-            Task t = Task.Run(() => DataHandler.PostAppStats(e.NavigationParameter.ToString()));
+            await ArticleCounter.AddArticleCount("Wij bieden HVZeeland kostenloos aan en we zouden het op prijs stellen als u de HVZeeland app een positieve review geeft in de Windows store.", "Bedankt");
+            Task t = Task.Run(() => ClientIDHandler.instance.PostAppStats(ClientIDHandler.AppName.HVZeeland));
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)

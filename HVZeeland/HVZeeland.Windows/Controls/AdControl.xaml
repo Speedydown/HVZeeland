@@ -5,26 +5,21 @@
     xmlns:local="using:XamlControlLibrary"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:UI="using:Microsoft.Advertising.WinRT.UI"
+       xmlns:wp8="using:Microsoft.AdMediator.Windows81"
     mc:Ignorable="d">
     
     <Grid x:Name="AdGrid" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="90">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
-        <UI:AdControl
-            x:Name="adControl"
-          ApplicationId="be3e5ba2-0d85-4d90-95fc-4d083bf795b9" 
-          AdUnitId="11530565" 
-          HorizontalAlignment="Center" 
-          Height="90" Grid.Column="1"
-          IsAutoRefreshEnabled="True" 
-          
-          VerticalAlignment="Top" 
-          Width="728"/>
-        <TextBlock Text="Sluiten" Foreground="#096898" FontSize="15" Margin="0,5,0,0" Tapped="TextBlock_Tapped" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-        
+        <wp8:AdMediatorControl
+                    x:Name="AdMediator_AdHVz"
+                    Id="AdHVzW8.1"
+              HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                      Height="90"
+                       Width="728"/>
+        <TextBlock Text="Sluiten" Foreground="#096898" FontSize="15" Margin="0,5,0,0" Tapped="TextBlock_Tapped" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>    
     </Grid>
 </UserControl>

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BaseLogic.HtmlUtil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using WebCrawlerTools;
 using Windows.Foundation;
 
 namespace HVZeelandLogic
@@ -62,16 +62,6 @@ namespace HVZeelandLogic
             string PageSource = await HTTPGetUtil.GetDataAsStringFromURL("http://www.hvzeeland.nl/zoeken/resultaten?zoekwoord=" + SearchTerm + "&van=&tot=");
 
             return NewsLinkParser.GetNewsLinksFromSource(PageSource);
-        }
-
-        public static IAsyncAction PostAppStats(string URL)
-        {
-            return PostAppStatsHelper(URL).AsAsyncAction();
-        }
-
-        private static async Task PostAppStatsHelper(string URL)
-        {
-            await HTTPGetUtil.GetDataAsStringFromURL("http://speedydown-001-site2.smarterasp.net/api.ashx?HVZeeland=" + URL);
         }
     }
 }

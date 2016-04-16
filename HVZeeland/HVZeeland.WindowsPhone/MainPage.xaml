@@ -5,7 +5,8 @@
     xmlns:local="using:HVZeeland"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:CLib="using:XamlControlLibrary"
+    xmlns:CLib="using:BaseLogic.Xaml_Controls"
+    xmlns:wp8="using:Microsoft.AdMediator.WindowsPhone81"
     mc:Ignorable="d"
     Background="#096898">
 
@@ -25,15 +26,25 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
-        <Pivot x:Name="HVZPivot" Style="{StaticResource CustomPivotStyle}" Title="HVZeeland" SelectionChanged="HVZPivot_SelectionChanged">
+        <Pivot x:Name="HVZPivot" Margin="0,-22,0,0"  Style="{StaticResource CustomPivotStyle}" Title="HVZeeland" SelectionChanged="HVZPivot_SelectionChanged">
             <PivotItem x:Name="LatestNews">
                 <PivotItem.Header>
                     <TextBlock Text="Nieuws" FontSize="21" FontWeight="Bold" Margin="0,5,0,0" />
                 </PivotItem.Header>
                 <Grid Margin="-20, -23, -20, 0">
                     <ScrollViewer VerticalScrollMode="Auto">
-                        <ListView x:Name="NewsListView" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
+                        <StackPanel>
+                            <ListView x:Name="NewsListView" ItemTemplate="{StaticResource HVZNewsItemLink}" IsItemClickEnabled="True" ItemClick="NewsListView_ItemClick"/>
+                            <wp8:AdMediatorControl
+                    x:Name="AdMediator_Ad5"
+                    Id="AdHvzWP8.1.2"
+              HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                      Height="250"
+                       Width="300"/>
+                        </StackPanel>
                     </ScrollViewer>
+
                     <CLib:LoadingControl x:Name="LoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Bezig met het ophalen van de laatste berichten."/>
                 </Grid>
             </PivotItem>
@@ -67,7 +78,7 @@
         </Pivot>
     </Grid>
     <Page.BottomAppBar>
-        <CommandBar Background="#096898" Foreground="White">
+        <CommandBar Background="#096898" Foreground="White" ClosedDisplayMode="Minimal">
             <AppBarButton x:Uid="HVZButton" x:Name="HVZButton" Label="Website" Icon="World" Click="HVZButton_Click" />
             <AppBarButton x:Uid="ReloadButton" x:Name="ReloadButton" Label="Vernieuwen" Icon="Refresh" Click="ReloadButton_Click" />
             <AppBarButton x:Uid="SearchButton" x:Name="SearchButton" Label="Zoeken" Visibility="Collapsed" Icon="Find" Click="SearchButton_Click" />
