@@ -20,7 +20,6 @@ namespace HVZeeland
         public privacyPolicy()
         {
             this.InitializeComponent();
-            this.privacyPolicyHyperLink.NavigateUri = new Uri("http://wiezitwaarvandaag.nl/privacypolicy.aspx");
         }
     }
 }

@@ -20,7 +20,8 @@
         <SolidColorBrush x:Key="ButtonPointerOverForegroundThemeBrush" Color="LightGray" />
         <SolidColorBrush x:Key="ButtonPressedBackgroundThemeBrush" Color="Transparent" />
         <SolidColorBrush x:Key="ButtonPressedForegroundThemeBrush" Color="White" />
-
+        <SolidColorBrush x:Key="PivotHeaderForegroundSelectedBrush" Color="White" />
+        <SolidColorBrush x:Key="PivotHeaderForegroundUnselectedBrush" Color="LightGray" />
 
     </Application.Resources>
 </Application>

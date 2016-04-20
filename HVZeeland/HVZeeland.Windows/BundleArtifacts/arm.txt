@@ -1,5 +1,5 @@
-MainPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\ARM\Release\HVZeeland.Windows_1.1.0.7_Bundle\HVZeeland.Windows_1.1.0.7_ARM.appx
-SymbolPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\AppPackages\HVZeeland.Windows_1.1.0.7_Test\HVZeeland.Windows_1.1.0.7_ARM.appxsym
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\ARM\Release\HVZeeland.Windows_1.1.0.7_Bundle\HVZeeland.Windows_1.1.0.7_language-nl.appx
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\ARM\Release\HVZeeland.Windows_1.1.0.7_Bundle\HVZeeland.Windows_1.1.0.7_scale-140.appx
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\ARM\Release\HVZeeland.Windows_1.1.0.7_Bundle\HVZeeland.Windows_1.1.0.7_scale-180.appx
+MainPackage=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\ARM\Release\HVZeeland.Windows_1.1.0.8_ARM.appx
+SymbolPackage=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\AppPackages\HVZeeland.Windows_1.1.0.8_Test\HVZeeland.Windows_1.1.0.8_ARM.appxsym
+ResourcePack=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\ARM\Release\HVZeeland.Windows_1.1.0.8_language-nl.appx
+ResourcePack=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\ARM\Release\HVZeeland.Windows_1.1.0.8_scale-140.appx
+ResourcePack=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\ARM\Release\HVZeeland.Windows_1.1.0.8_scale-180.appx

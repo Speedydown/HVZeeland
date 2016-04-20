@@ -179,9 +179,9 @@ namespace HVZeeland
             await Launcher.LaunchUriAsync(new Uri("http://www.hvzeeland.nl/"));
         }
 
-        private async void PrivacyPolicyButton_Click(object sender, RoutedEventArgs e)
+        private void PrivacyPolicyButton_Click(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("http://wiezitwaarvandaag.nl/privacypolicy.aspx"));
+            Frame.Navigate(typeof(PrivacyPolicy));
         }
 
         private async void ReloadButton_Click(object sender, RoutedEventArgs e)

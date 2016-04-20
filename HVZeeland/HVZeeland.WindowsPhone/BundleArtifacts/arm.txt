@@ -1,5 +1,5 @@
-MainPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\ARM\Release\HVZeeland.WindowsPhone_2016.417.154.2_Bundle\HVZeeland.WindowsPhone_2016.417.154.2_ARM.appx
-SymbolPackage=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\AppPackages\HVZeeland.WindowsPhone_2016.417.154.2_Test\HVZeeland.WindowsPhone_2016.417.154.2_ARM.appxsym
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\ARM\Release\HVZeeland.WindowsPhone_2016.417.154.2_Bundle\HVZeeland.WindowsPhone_2016.417.154.2_language-nl.appx
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\ARM\Release\HVZeeland.WindowsPhone_2016.417.154.2_Bundle\HVZeeland.WindowsPhone_2016.417.154.2_scale-100.appx
-ResourcePack=C:\Users\Teake\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\ARM\Release\HVZeeland.WindowsPhone_2016.417.154.2_Bundle\HVZeeland.WindowsPhone_2016.417.154.2_scale-140.appx
+MainPackage=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\ARM\Release\HVZeeland.WindowsPhone_2016.420.2212.3_ARM.appx
+SymbolPackage=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\AppPackages\HVZeeland.WindowsPhone_2016.420.2212.3_Test\HVZeeland.WindowsPhone_2016.420.2212.3_ARM.appxsym
+ResourcePack=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\ARM\Release\HVZeeland.WindowsPhone_2016.420.2212.3_language-nl.appx
+ResourcePack=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\ARM\Release\HVZeeland.WindowsPhone_2016.420.2212.3_scale-100.appx
+ResourcePack=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.WindowsPhone\bin\ARM\Release\HVZeeland.WindowsPhone_2016.420.2212.3_scale-140.appx

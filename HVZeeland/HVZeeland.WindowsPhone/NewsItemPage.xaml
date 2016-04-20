@@ -22,7 +22,6 @@
         </Grid.ChildrenTransitions>
         <CLib:DisplayNewsItemControl Grid.Row="0" x:Name="NewsItemControl"/>
         <CLib:LoadingControl Grid.Row="0" x:Name="LoadingControl" TextColor="#096898" ErrorText="HVZeeland is niet beschikbaar :(" ErrorSubText="Probeer het later opnieuw."  LoadingText="Een ogenblik geduld."/>
-        <localControls:AdControl Grid.Row="1"/>
     </Grid>
     <Page.BottomAppBar>
         <CommandBar Background="#096898" Foreground="White" Visibility="Collapsed">
