@@ -140,8 +140,6 @@ namespace HVZeeland
             }
             catch
             {
-                LoadingControl.DisplayLoadingError(true);
-                ContentGrid.Visibility = Visibility.Collapsed;
                 return new List<P2000Item>();
             }
         }

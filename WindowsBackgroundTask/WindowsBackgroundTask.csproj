@@ -101,7 +101,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\..\win10apps.nl\BaseLogic\BaseLogic.csproj">
+    <ProjectReference Include="..\..\win10apps.nl\Nuget\BaseLogic\BaseLogic.csproj">
       <Project>{ee050c83-148e-4402-b25c-bc667d855965}</Project>
       <Name>BaseLogic</Name>
     </ProjectReference>

@@ -22,13 +22,13 @@ namespace HVZeelandLogic
             {
                 try
                 {
-                    Input = Input.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<td width=50 class=text valign = top>", Input, false));
-                    string Time = HTMLParserUtil.GetContentAndSubstringInput("<td width=50 class=text valign = top>", "</td>", Input, out Input);
-                    string Content = HTMLParserUtil.GetContentAndSubstringInput("<td width=470 class=text valign = top>", "</td>", Input, out Input);
+                    Input = Input.Substring(HTMLParserUtil.GetPositionOfStringInHTMLSource("<td width=\"50\" valign=\"top\">", Input, false));
+                    string Time = HTMLParserUtil.GetContentAndSubstringInput("<td width=\"50\" valign=\"top\">", "</td>", Input, out Input);
+                    string Content = HTMLParserUtil.GetContentAndSubstringInput("<td valign=\"top\">", "</td>", Input, out Input);
 
                     P2000Items.Add(new P2000Item(Time, Content));
                 }
-                catch
+                catch (Exception ex)
                 {
                     break;
                 }

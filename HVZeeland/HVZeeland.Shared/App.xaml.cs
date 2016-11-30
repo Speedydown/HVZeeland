@@ -40,7 +40,7 @@ namespace HVZeeland
         void App_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             e.Handled = true;
-            Task t = ExceptionHandler.instance.PostException(new AppException(e.Exception), (int)BaseLogic.ClientIDHandler.ClientIDHandler.AppName.HVZeeland);
+            Task t = ExceptionHandler.instance.PostException(new AppException(e.Exception, (int)BaseLogic.ClientIDHandler.ClientIDHandler.AppName.HVZeeland));
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)

@@ -1,2 +1,2 @@
-MainPackage=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\x86\Release\HVZeeland.Windows_1.1.0.8_x86.appx
-SymbolPackage=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\AppPackages\HVZeeland.Windows_1.1.0.8_Test\HVZeeland.Windows_1.1.0.8_x86.appxsym
+MainPackage=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\bin\x86\Release\HVZeeland.Windows_1.1.0.9_x86.appx
+SymbolPackage=C:\Users\speed\Documents\GitHub\HVZeeland\HVZeeland\HVZeeland.Windows\AppPackages\HVZeeland.Windows_1.1.0.9_Test\HVZeeland.Windows_1.1.0.9_x86.appxsym
